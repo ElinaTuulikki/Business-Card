@@ -5,7 +5,7 @@ const THREE = window.MINDAR.IMAGE.THREE;
 async function startAR() {
   const mindARThreeJs = new window.MINDAR.IMAGE.MindARThree({
     container: document.body,
-    imageTargetSrc: "assets/targets/busnessCard.mind"
+    imageTargetSrc: "../assets/targets/businessCard.mind"
   });
 
   const { cssRenderer, renderer, cssScene, scene, camera } = mindARThreeJs;
