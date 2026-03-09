@@ -22,7 +22,7 @@ body {
 .ar-card {
     width: 900px;
     height: 900px;
-    visibility: visible;
+    visibility: hidden;
     position: relative;
     background: var(--dark);
     border: 1px solid rgba(180,79,255,0.4);
