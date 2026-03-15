@@ -39,6 +39,7 @@ body {
 
 .ar-card.visible {
     visibility: visible;
+    pointer-events: auto;
 }
 
 .ar-card::before {
@@ -236,4 +237,16 @@ body {
 .contact-item .label {
     color: var(--purple);
     margin-right: 6px;
+}
+
+/* Allow clicks to pass through MindAR's CSS renderer layer to the card */
+.mindar-ui-overlay,
+.mindar-ui-overlay * {
+    pointer-events: none;
+}
+
+.ar-card a,
+.ar-card button {
+    pointer-events: auto;
+    cursor: pointer;
 }
