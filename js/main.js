@@ -1,4 +1,4 @@
-import { CSS3DObject } from "../libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js";
+import { CSS3DObject } from "three/addons/renderers/CSS3DRenderer.js";
 
 const THREE = window.MINDAR.IMAGE.THREE;
 
@@ -10,26 +10,25 @@ async function startAR() {
 
   const { cssRenderer, renderer, cssScene, scene, camera } = mindARThreeJs;
 
-  const cardElement = document.querySelector("#ar-card");
-  const cssObject = new CSS3DObject(cardElement);
-  cssObject.scale.set(0.001, 0.001, 0.001);
-
+  const container = new CSS3DObject(document.querySelector("#ar-card"));
   const anchor = mindARThreeJs.addCSSAnchor(0);
-  anchor.group.add(cssObject);
+  anchor.group.scale.set(0.3, 0.3, 0.3);
+  anchor.group.add(container);
 
   anchor.onTargetFound = () => {
-    cardElement.style.visibility = "visible";
+    setTimeout(() => {
+      document.querySelector("#ar-card").classList.add("visible");
+    }, 100);
   };
 
   anchor.onTargetLost = () => {
-    cardElement.style.visibility = "hidden";
+    document.querySelector("#ar-card").classList.remove("visible");
   };
 
   await mindARThreeJs.start();
 
   renderer.setAnimationLoop(() => {
     cssRenderer.render(cssScene, camera);
-    renderer.render(scene, camera);
   });
 }
 

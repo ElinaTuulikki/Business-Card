@@ -37,6 +37,10 @@ body {
     inset 0 0 80px rgba(0,0,0,0.6);
 }
 
+.ar-card.visible {
+    visibility: visible;
+}
+
 .ar-card::before {
     content: '';
     position: absolute;
