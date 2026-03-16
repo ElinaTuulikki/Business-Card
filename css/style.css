@@ -239,7 +239,6 @@ body {
     margin-right: 6px;
 }
 
-/* Allow clicks to pass through MindAR's CSS renderer layer to the card */
 .mindar-ui-overlay,
 .mindar-ui-overlay * {
     pointer-events: none;
@@ -249,4 +248,33 @@ body {
 .ar-card button {
     pointer-events: auto;
     cursor: pointer;
+}
+
+.css3d-renderer {
+  pointer-events: none !important;
+}
+
+.css3d-renderer div {
+  pointer-events: auto !important;
+}
+
+#ar-card,
+#ar-card * {
+  pointer-events: auto !important;
+}
+
+.mindar-ui-overlay {
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.ar-card {
+  position: relative;
+  z-index: 100;
+}
+
+.ar-card a {
+  cursor: pointer;
+  position: relative;
+  z-index: 200;
 }

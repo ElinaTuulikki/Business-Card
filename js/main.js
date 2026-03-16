@@ -26,10 +26,36 @@ async function startAR() {
   };
 
   cssRenderer.domElement.style.pointerEvents = "auto";
-  const cameraDivs = cssRenderer.domElement.querySelectorAll("div");
-  cameraDivs.forEach(div => {
-    div.style.pointerEvents = "auto";
-  });
+  const style = document.createElement('style');
+  style.textContent = `
+    .mindar-ui-overlay {
+      pointer-events: none !important;
+    }
+    .mindar-ui-overlay * {
+      pointer-events: none !important;
+    }
+    .css3d-renderer {
+      pointer-events: none !important;
+    }
+    .css3d-renderer div {
+      pointer-events: auto !important;
+    }
+  `;
+  document.head.appendChild(style);
+
+  setTimeout(() => {
+    const buttons = document.querySelectorAll('.social-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const href = btn.getAttribute('href');
+        if (href && href !== '#') {
+          window.open(href, '_blank');
+        }
+      });
+    });
+  }, 1000);
 
   await mindARThreeJs.start();
 
