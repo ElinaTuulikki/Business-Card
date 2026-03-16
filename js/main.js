@@ -25,6 +25,12 @@ async function startAR() {
     document.querySelector("#ar-card").classList.remove("visible");
   };
 
+  cssRenderer.domElement.style.pointerEvents = "auto";
+  const cameraDivs = cssRenderer.domElement.querySelectorAll("div");
+  cameraDivs.forEach(div => {
+    div.style.pointerEvents = "auto";
+  });
+
   await mindARThreeJs.start();
 
   renderer.setAnimationLoop(() => {
