@@ -195,11 +195,16 @@ body {
     background: rgba(255,255,255,0.04);
     transition: all 0.2s ease;
     color: rgba(255,255,255,0.6);
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 1000;
 }
 
 .social-btn svg {
     width: 48px;
     height: 48px;
+    pointer-events: none;
 }
 
 .social-btn:hover {
@@ -241,40 +246,21 @@ body {
 
 .mindar-ui-overlay,
 .mindar-ui-overlay * {
-    pointer-events: none;
-}
-
-.ar-card a,
-.ar-card button {
-    pointer-events: auto;
-    cursor: pointer;
+    pointer-events: none !important;
 }
 
 .css3d-renderer {
-  pointer-events: none !important;
-}
-
-.css3d-renderer div {
-  pointer-events: auto !important;
+    pointer-events: none !important;
 }
 
 #ar-card,
 #ar-card * {
-  pointer-events: auto !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
-.mindar-ui-overlay {
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-.ar-card {
-  position: relative;
-  z-index: 100;
-}
-
-.ar-card a {
-  cursor: pointer;
-  position: relative;
-  z-index: 200;
+.ar-card a,
+.ar-card button {
+    pointer-events: auto !important;
+    cursor: pointer !important;
 }
